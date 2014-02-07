@@ -89,13 +89,21 @@ function timeSincePost(t) {
 // Profile, mentions, hashtag, and following modal
 // -----------------------------------
 
-function newProfileModal(username) {
-    var profileModalContent = $( "#profile-modal-template" ).children().clone(true);
+function newProfileModalTop(username) {
+    var profileModalContent = $( "#profile-modal-template-top" ).children().clone(true);
 
     updateProfileData(profileModalContent, username);
 
     return profileModalContent;
 }
+function newProfileModalBot(username) {
+    var profileModalContent = $( "#profile-modal-template-bot" ).children().clone(true);
+
+    updateProfileData(profileModalContent, username);
+
+    return profileModalContent;
+}
+
 
 function openProfileModal(e)
 {
@@ -108,8 +116,11 @@ function openProfileModal(e)
     var profileModalClass = "profile-modal";
     openModal( profileModalClass );
 
-    var profileModalContent = newProfileModal( username );
-    profileModalContent.appendTo("." +profileModalClass + " .modal-content");
+    var profileModalContent = newProfileModalTop( username );
+    profileModalContent.appendTo("." +profileModalClass + " .modal-content-top");
+
+    profileModalContent = newProfileModalBot( username );
+    profileModalContent.appendTo("." +profileModalClass + " .modal-content-bot");
 
     //título do modal
     $( "."+profileModalClass + " h3" ).text( polyglot.t("users_profile", { username: username }) );

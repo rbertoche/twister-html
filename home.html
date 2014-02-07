@@ -262,16 +262,20 @@
     
     <!-- TEMPLATE DO MODAL GENÉRICO INIT -->
     <div class="modal-blackout">
-      <div class="modal-wrapper">
+      <div class="modal-wrapper-top">
         <div class="modal-header">
           <h3></h3>
           <span id="closeModal" class="modal-close cancel">&times;</span>
+          <div class="modal-content-top"></div>
         </div>
-        <div class="modal-content"></div>
+    <!-- raphael - Can't figure this out. Isn't it useless?
         <div class="modal-buttons">
           <button class="modal-cancel cancel">Cancel</button>
           <button class="modal-propagate">Retransmit</button>
-        </div>
+        </div> -->
+      </div>
+      <div class="modal-wrapper-bot">
+        <div class="modal-content-bot"></div>
       </div>
     </div>
     <!-- TEMPLATE DO MODAL GENÉRICO END -->
@@ -341,7 +345,7 @@
 
 
     <!-- MODAL DE PROFILE -->
-    <div id="profile-modal-template">
+    <div id="profile-modal-template-top">
         <!-- ÁREA DE PROFILE PHOTO INIT -->
           <div class="profile-card" data-screen-name="">
             <!-- Coloquei a imagem de fundo do card do usuário como background da div
@@ -367,9 +371,11 @@
             <button class="direct-messages-with-user" href="#">Direct Messages</button>
 
           </div>
+    </div> 
         <!-- ÁREA DE POSTS END -->
 
-        <!-- ÁREA DE POSTS INIT -->
+	<!-- ÁREA DE POSTS INIT -->
+    <div id="profile-modal-template-bot">
           <div class="postboard">
             <h2>
               <span>Posts</span>
